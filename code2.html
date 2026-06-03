@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Study Buddy - Simple Logic</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            padding: 2rem;
+        }
+        .container {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            max-width: 800px;
+            width: 100%;
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+        }
+        select, button {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 1rem;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        #output {
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 2px solid #eee;
+            display: none;
+            line-height: 1.6;
+        }
+        h3 {
+            color: #4CAF50;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>🎒 Offline Study Buddy</h1>
+        <p style="text-align: center;">Select a subject and click Enter to view the guide.</p>
+
+        <select id="subjectSelect">
+            <option value="None" selected>📚 Choose a subject...</option>
+            <option value="Mathematics">Mathematics</option>
+            <option value="English Literature">English Literature</option>
+            <option value="World History">World History</option>
+            <option value="US History">US History</option>
+            <option value="Geography">Geography</option>
+            <option value="Biology">Biology</option>
+            <option value="Chemistry">Chemistry</option>
+            <option value="Physics">Physics</option>
+            <option value="Earth Science">Earth Science</option>
+            <option value="Astronomy">Astronomy</option>
+            <option value="Computer Science">Computer Science</option>
+            <option value="Economics">Economics</option>
+            <option value="Business Studies">Business Studies</option>
+            <option value="Music Theory">Music & Music Theory</option>
+            <option value="Visual Arts">Visual Arts</option>
+            <option value="Physical Education (Gym)">Physical Education (Gym)</option>
+            <option value="Health">Health</option>
+            <option value="Culinary Arts (Cooking)">Culinary Arts (Cooking)</option>
+            <option value="Theater & Drama">Theater & Drama</option>
+            <option value="Spanish">Spanish</option>
+            <option value="French">French</option>
+            <option value="Italian">Italian</option>
+        </select>
+
+        <button onclick="generateGuide()">Enter</button>
+
+        <div id="output"></div>
+    </div>
+
+    <script>
+        function generateGuide() {
+            // 1. Get the subject the user picked
+            let subject = document.getElementById("subjectSelect").value;
+            let outputDiv = document.getElementById("output");
+            let content = "";
+
+            // 2. Simple If/Then logic to check which subject was picked
+            if (subject === "None") {
+                content = "<h3 style='color:red;'>⚠️ Error</h3><p>Please select a subject from the list first.</p>";
+            } 
+            else if (subject === "Music Theory") {
+                content = `
+                    <h3>📋 Overview: Music Theory</h3>
+                    <p>Music theory is the study of how music works, allowing us to read, write, and understand musical structures.</p>
+                    <h3>🔑 Clefs & Notes</h3>
+                    <ul>
+                        <li><strong>Treble Clef:</strong> For high pitches. Spaces spell <strong>FACE</strong>. Lines are <strong>EGBDF</strong> (Every Good Boy Deserves Fudge).</li>
+                        <li><strong>Bass Clef:</strong> For low pitches. Spaces are <strong>ACEG</strong> (All Cows Eat Grass). Lines are <strong>GBDFA</strong> (Good Boys Do Fine Always).</li>
+                    </ul>
+                    <h3>⚙️ Rhythms & Scales</h3>
+                    <ul>
+                        <li><strong>Note Values:</strong> Whole Note (4 beats), Half Note (2 beats), Quarter Note (1 beat), Eighth Note (1/2 beat).</li>
+                        <li><strong>Scales:</strong> A sequence of notes. The Major Scale uses a specific pattern of Whole and Half steps: W-W-H-W-W-W-H.</li>
+                    </ul>
+                `;
+            }
+            else if (subject === "Mathematics") {
+                content = `
+                    <h3>📋 Overview: Mathematics</h3>
+                    <p>The abstract science of number, quantity, and space.</p>
+                    <h3>🔑 Core Concepts</h3>
+                    <ul>
+                        <li><strong>PEMDAS:</strong> Parentheses, Exponents, Multiplication/Division, Addition/Subtraction.</li>
+                        <li><strong>Algebra:</strong> Using letters to represent unknown values.</li>
+                    </ul>
+                    <h3>⚙️ Important Formulas</h3>
+                    <ul>
+                        <li><strong>Pythagorean Theorem:</strong> a² + b² = c²</li>
+                        <li><strong>Area of a Circle:</strong> A = πr²</li>
+                    </ul>
+                `;
+            }
+            else if (subject === "English Literature") {
+                content = `
+                    <h3>📋 Overview: English Literature</h3>
+                    <p>The study of written works to explore human experience and culture.</p>
+                    <h3>🔑 Core Concepts</h3>
+                    <ul>
+                        <li><strong>Metaphor:</strong> A direct comparison (e.g., "Time is a thief").</li>
+                        <li><strong>Theme:</strong> The underlying message of a text.</li>
+                    </ul>
+                    <h3>⚙️ Important Details</h3>
+                    <ul>
+                        <li><strong>Narrative Arc:</strong> Exposition, Rising Action, Climax, Falling Action, Resolution.</li>
+                    </ul>
+                `;
+            }
+            else if (subject === "World History") {
+                content = `
+                    <h3>📋 Overview: World History</h3>
+                    <p>The study of major events and civilizations that shaped the globe.</p>
+                    <h3>🔑 Core Concepts</h3>
+                    <ul>
+                        <li><strong>Civilization:</strong> A complex society with urban development and writing.</li>
+                        <li><strong>Imperialism:</strong> Extending a country's power through force or diplomacy.</li>
+                    </ul>
+                    <h3>⚙️ Important Details</h3>
+                    <ul>
+                        <li><strong>Mesopotamia:</strong> The cradle of civilization.</li>
+                    </ul>
+                `;
+            }
+            else if (subject === "US History") {
+                content = `
+                    <h3>📋 Overview: US History</h3>
+                    <p>The formation and development of the United States.</p>
+                    <h3>🔑 Core Concepts</h3>
+                    <ul>
+                        <li><strong>Manifest Destiny:</strong> The belief that US expansion was justified and inevitable.</li>
+                        <li><strong>Constitution:</strong> The supreme law of the US (1789).</li>
+                    </ul>
+                    <h3>⚙️ Important Details</h3>
+                    <ul>
+                        <li><strong>1776:</strong> Declaration of Independence signed.</li>
+                        <li><strong>1861-1865:</strong> The American Civil War.</li>
+                    </ul>
+                `;
+            }
+            else if (subject === "Geography") {
+                content = `
+                    <h3>📋 Overview: Geography</h3>
+                    <p>The study of places and the relationships between people and their environments.</p>
+                    <h3>🔑 Core Concepts</h3>
+                    <ul>
+                        <li><strong>Latitude:</strong> Horizontal lines around the globe.</li>
+                        <li><strong>Longitude:</strong> Vertical lines from pole to pole.</li>
+                    </ul>
+                    <h3>⚙️ Important Details</h3>
+                    <ul>
+                        <li><strong>7 Continents:</strong> Africa, Antarctica, Asia, Europe, North America, Australia, South America.</li>
+                    </ul>
+                `;
+            }
+            else if (subject === "Biology") {
+                content = `
+                    <h3>📋 Overview: Biology</h3>
+                    <p>The study of life and living organisms.</p>
+                    <h3>🔑 Core Concepts</h3>
+                    <ul>
+                        <li><strong>Cell Theory:</strong> All living things are composed of cells.</li>
+                        <li><strong>DNA:</strong> The molecule carrying genetic instructions.</li>
+                    </ul>
+                    <h3>⚙️ Important Details</h3>
+                    <ul>
+                        <li><strong>Mitochondria:</strong> The powerhouse of the cell.</li>
+                        <li><strong>Photosynthesis:</strong> How plants convert sunlight into food.</li>
+                    </ul>
+                `;
+            }
+            else if (subject === "Chemistry") {
+                content = `
+                    <h3>📋 Overview: Chemistry</h3>
+                    <p>The study of the properties and behavior of matter.</p>
+                    <h3>🔑 Core Concepts</h3>
+                    <ul>
+                        <li><strong>Atom:</strong> The basic building block of chemistry.</li>
+                        <li><strong>Covalent Bond:</strong> Sharing of electron pairs between atoms.</li>
+                    </ul>
+                    <h3>⚙️ Important Details</h3>
+                    <ul>
+                        <li><strong>Periodic Table:</strong> Organizes elements by atomic number.</li>
+                        <li><strong>pH Scale:</strong> Measures acidity (0-14, 7 is neutral).</li>
+                    </ul>
+                `;
+            }
+            else if (subject === "Physics") {
+                content = `
+                    <h3>📋 Overview: Physics</h3>
+                    <p>The study of matter, motion, energy, and force.</p>
+                    <h3>🔑 Core Concepts</h3>
+                    <ul>
+                        <li><strong>Kinematics:</strong> The study of motion.</li>
+                        <li><strong>Gravity:</strong> The force of attraction between masses.</li>
+                    </ul>
+                    <h3>⚙️ Important Details</h3>
+                    <ul>
+                        <li><strong>Newton's 2nd Law:</strong> Force = mass × acceleration (F=ma).</li>
+                    </ul>
+                `;
+            }
+            else if (subject === "Earth Science") {
+                content = `
+                    <h3>📋 Overview: Earth Science</h3>
+                    <p>The sciences relating to planet Earth.</p>
+                    <h3>🔑 Core Concepts</h3>
+                    <ul>
+                        <li><strong>Plate Tectonics:</strong> Earth's outer shell is divided into gliding plates.</li>
+                        <li><strong>Rock Cycle:</strong> Igneous, Metamorphic, and Sedimentary changes.</li>
+                    </ul>
+                    <h3>⚙️ Important Details</h3>
+                    <ul>
+                        <li><strong>Weather vs Climate:</strong> Weather is short-term; climate is long-term.</li>
+                    </ul>
+                `;
+            }
+            else if (subject === "Astronomy") {
+                content = `
+                    <h3>📋 Overview: Astronomy</h3>
+                    <p>The study of celestial objects and the universe.</p>
+                    <h3>🔑 Core Concepts</h3>
+                    <ul>
+                        <li><strong>Galaxy:</strong> A system of stars, gas, and dust (e.g., Milky Way).</li>
+                        <li><strong>Black Hole:</strong> A region with gravity so strong that light cannot escape.</li>
+                    </ul>
+                    <h3>⚙️ Important Details</h3>
+                    <ul>
+                        <li><strong>Solar System:</strong> The Sun and the 8 orbiting planets.</li>
+                    </ul>
+                `;
+            }
+            else if (subject === "Computer Science") {
+                content = `
+                    <h3>📋 Overview: Computer Science</h3>
+                    <p>The study of computers and computational systems.</p>
+                    <h3>🔑 Core Concepts</h3>
+                    <ul>
+                        <li><strong>Algorithm:</strong> A set of instructions to perform a task.</li>
+                        <li><strong>Loop:</strong> Repeating a sequence until a condition is met.</li>
+                    </ul>
+                    <h3>⚙️ Important Details</h3>
+                    <ul>
+                        <li><strong>Binary Code:</strong> The basic language of computers (0s and 1s).</li>
+                    </ul>
+                `;
+            }
+            else if (subject === "Economics") {
+                content = `
+                    <h3>📋 Overview: Economics</h3>
+                    <p>The study of how people produce, distribute, and consume resources.</p>
+                    <h3>🔑 Core Concepts</h3>
+                    <ul>
+                        <li><strong>Micro vs Macro:</strong> Micro looks at individuals/businesses; Macro looks at entire nations.</li>
+                        <li><strong>Supply and Demand:</strong> The model of price determination.</li>
+                    </ul>
+                    <h3>⚙️ Important Details</h3>
+                    <ul>
+                        <li><strong>Inflation:</strong> The rate at which prices rise over time.</li>
+                    </ul>
+                `;
+            }
+            else if (subject === "Business Studies") {
+                content = `
+                    <h3>📋 Overview: Business Studies</h3>
+                    <p>How businesses are organized, operated, and managed.</p>
+                    <h3>🔑 Core Concepts</h3>
+                    <ul>
+                        <li><strong>SWOT Analysis:</strong> Strengths, Weaknesses, Opportunities, Threats.</li>
+                        <li><strong>Marketing Mix:</strong> Product, Price, Place, Promotion.</li>
+                    </ul>
+                    <h3>⚙️ Important Details</h3>
+                    <ul>
+                        <li><strong>Profit:</strong> Revenue minus expenses.</li>
+                    </ul>
+                `;
+            }
+            else if (subject === "Visual Arts") {
+                content = `
+                    <h3>📋 Overview: Visual Arts</h3>
+                    <p>The creation of works primarily visual in nature.</p>
+                    <h3>🔑 Core Concepts</h3>
+                    <ul>
+                        <li><strong>Elements of Art:</strong> Line, Shape, Form, Space, Texture, Value, Color.</li>
+                        <li><strong>Perspective:</strong> Representing 3D objects on a 2D surface.</li>
+                    </ul>
+                    <h3>⚙️ Important Details</h3>
+                    <ul>
+                        <li><strong>Primary Colors:</strong> Red, Yellow, Blue.</li>
+                    </ul>
+                `;
+            }
+            else if (subject === "Physical Education (Gym)") {
+                content = `
+                    <h3>📋 Overview: Physical Education</h3>
+                    <p>Developing physical fitness and understanding sports strategies.</p>
+                    <h3>🔑 Core Concepts</h3>
+                    <ul>
+                        <li><strong>Cardiovascular Endurance:</strong> Heart and lung capacity during exercise.</li>
+                        <li><strong>Muscular Strength:</strong> Maximum force a muscle can produce.</li>
+                    </ul>
+                    <h3>⚙️ Important Details</h3>
+                    <ul>
+                        <li><strong>Warm-up/Cool-down:</strong> Essential for preventing injury.</li>
+                    </ul>
+                `;
+            }
+            else if (subject === "Health") {
+                content = `
+                    <h3>📋 Overview: Health</h3>
+                    <p>Information on physical, mental, emotional, and social well-being.</p>
+                    <h3>🔑 Core Concepts</h3>
+                    <ul>
+                        <li><strong>Macronutrients:</strong> Carbohydrates, Proteins, Fats.</li>
+                        <li><strong>Sleep Hygiene:</strong> Practices for getting consistent, quality sleep.</li>
+                    </ul>
+                    <h3>⚙️ Important Details</h3>
+                    <ul>
+                        <li><strong>CPR:</strong> Emergency procedure for stopped heartbeat/breathing.</li>
+                    </ul>
+                `;
+            }
+            else if (subject === "Culinary Arts (Cooking)") {
+                content = `
+                    <h3>📋 Overview: Culinary Arts</h3>
+                    <p>The preparation, cooking, and presentation of food.</p>
+                    <h3>🔑 Core Concepts</h3>
+                    <ul>
+                        <li><strong>Mise en Place:</strong> Organizing ingredients before cooking.</li>
+                        <li><strong>Sautéing:</strong> Cooking quickly in a little fat over high heat.</li>
+                    </ul>
+                    <h3>⚙️ Important Details</h3>
+                    <ul>
+                        <li><strong>Danger Zone:</strong> Bacteria grow rapidly between 40°F and 140°F.</li>
+                    </ul>
+                `;
+            }
+            else if (subject === "Theater & Drama") {
+                content = `
+                    <h3>📋 Overview: Theater & Drama</h3>
+                    <p>Collaborative performing arts presented to a live audience.</p>
+                    <h3>🔑 Core Concepts</h3>
+                    <ul>
+                        <li><strong>Monologue:</strong> A long speech by one actor.</li>
+                        <li><strong>Blocking:</strong> The precise staging of actors on stage.</li>
+                    </ul>
+                    <h3>⚙️ Important Details</h3>
+                    <ul>
+                        <li><strong>Fourth Wall:</strong> The imaginary wall between actors and audience.</li>
+                    </ul>
+                `;
+            }
+            else if (subject === "Spanish") {
+                content = `
+                    <h3>📋 Overview: Spanish</h3>
+                    <p>A globally spoken Romance language known for its phonetic spelling.</p>
+                    <h3>🔑 Core Concepts</h3>
+                    <ul>
+                        <li><strong>Ser vs Estar:</strong> 'Ser' is for permanent traits; 'Estar' is for temporary states.</li>
+                        <li><strong>Conjugation:</strong> Changing a verb to match the subject.</li>
+                    </ul>
+                    <h3>⚙️ Important Details</h3>
+                    <ul>
+                        <li><strong>Vocabulary:</strong> Hola (Hello), Adiós (Goodbye), Gracias (Thank you).</li>
+                    </ul>
+                `;
+            }
+            else if (subject === "French") {
+                content = `
+                    <h3>📋 Overview: French</h3>
+                    <p>A Romance language heavily influential in global diplomacy and arts.</p>
+                    <h3>🔑 Core Concepts</h3>
+                    <ul>
+                        <li><strong>Tu vs Vous:</strong> 'Tu' is informal you; 'Vous' is formal/plural you.</li>
+                        <li><strong>Liaison:</strong> Pronouncing a normally silent final consonant before a vowel.</li>
+                    </ul>
+                    <h3>⚙️ Important Details</h3>
+                    <ul>
+                        <li><strong>Vocabulary:</strong> Bonjour (Hello), Merci (Thank you).</li>
+                    </ul>
+                `;
+            }
+            else if (subject === "Italian") {
+                content = `
+                    <h3>📋 Overview: Italian</h3>
+                    <p>A Romance language deeply tied to classical music and art.</p>
+                    <h3>🔑 Core Concepts</h3>
+                    <ul>
+                        <li><strong>Definite Articles:</strong> Il, Lo, La, L', I, Gli, Le.</li>
+                        <li><strong>Phonetics:</strong> Almost every word ends in a vowel.</li>
+                    </ul>
+                    <h3>⚙️ Important Details</h3>
+                    <ul>
+                        <li><strong>Vocabulary:</strong> Ciao (Hello/Goodbye), Grazie (Thank you).</li>
+                        <li><strong>Plurals:</strong> Endings change vowels (e.g., -o to -i) instead of adding 's'.</li>
+                    </ul>
+                `;
+            }
+
+            // 3. Put the text onto the screen
+            outputDiv.innerHTML = content;
+            outputDiv.style.display = "block";
+        }
+    </script>
+</body>
+</html>

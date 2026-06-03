@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>Gemini Study AI</title>
+	<link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+	<div class="app-shell">
+		<header class="hero-panel">
+			<div class="hero-copy">
+				<span class="eyebrow">Gemini Study Assistant</span>
+				<h1>Study with an open-minded AI</h1>
+				<p>Type a word, a question, or a topic and I'll respond like a thoughtful study partner.</p>
+			</div>
+		</header>
+		<main class="main-grid">
+			<section class="chat-card">
+				<div class="chat-meta">
+					<div>
+						<p class="subtle">Gemini-inspired study UI</p>
+						<h2>Ask anything about your topic.</h2>
+					</div>
+					<span id="statusText" class="status">Ready — open-ended responses.</span>
+				</div>
+
+				<div id="chatWindow" class="chat-window"></div>
+
+				<form id="chatForm" class="chat-input">
+					<textarea id="messageInput" placeholder="Type anything — I'll give an open-ended study response..."
+						rows="1"></textarea>
+					<button type="submit" id="sendBtn">Send</button>
+				</form>
+				<p class="hint">Tip: ask for flashcards, cheat sheets, quizzes, definitions, summaries, or practice
+					problems.</p>
+			</section>
+
+			<section class="block-card">
+				<div class="block-header">
+					<p class="subtle">Focus blocker</p>
+					<h2>Keep distractions away</h2>
+				</div>
+				<p class="block-copy">Add sites you want to avoid while studying. The list remains saved in your browser
+					so you can stay focused.</p>
+				<div class="block-action">
+					<input id="blockInput" type="text" placeholder="example.com" />
+					<button id="blockAddBtn" type="button">Add block</button>
+				</div>
+				<p id="blockStatus" class="block-status">No blocked sites yet.</p>
+				<ul id="blockedList" class="blocked-list"></ul>
+			</section>
+		</main>
+	</div>
+
+	<script src="_blocksite/site_blocker.js"></script>
+</body>
+
+</html>
